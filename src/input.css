@@ -1,0 +1,366 @@
+@import "tailwindcss";
+/* @import url('https://rsms.me/inter/inter.css');
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,300..700;1,300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap"); */
+
+/* @theme {
+  --font-inter: 'Inter', 'Inter Variable', sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+@theme {
+  --font-spacemono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,300..700;1,300..700&display=swap");
+
+@theme {
+  --font-victor: "Victor Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+
+@theme {
+  --font-robotoslab: "Roboto Slab", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+} */
+
+
+/* font variables handled in :root below */
+@layer utilities{
+.scrollbar::-webkit-scrollbar{
+  width: 8px;
+  height: 8px;
+}
+.scrollbar::-webkit-scrollbar-track{
+  background: transparent;
+
+}
+.scrollbar::-webkit-scrollbar-thumb{
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+.scrollbar::-webkit-scrollbar-thumb:hover{
+  background-color: rgba(255, 0, 0, 1);
+}
+
+@keyframes tubeFlicker {
+  0%, 18%, 22%, 26%, 53%, 57%, 80%, 84%, 100% {
+    opacity: 1;
+    filter: brightness(1.1) blur(1.5px);
+  }
+  19%, 23%, 25%, 54%, 56%, 81%, 83% {
+    opacity: 0.85;
+    filter: brightness(0.95) blur(1.2px);
+  }
+}
+@layer base {
+  .font-adwaita {
+    font-family: "Adwaita Mono", monospace;
+  }
+}
+@layer utilities {
+  .crt-text {
+    position: relative;
+    z-index: 1;
+  }
+  .crt-text::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 1;
+    color: #9FD3FF;
+
+    text-shadow:
+    0 0 2px rgba(191, 230, 255, 1),
+    0 0 6px rgba(159, 211, 255, 0.9),
+    0 0 14px rgba(95, 184, 255, 0.75),
+    0 0 28px rgba(30, 111, 184, 0.55);
+    animation: tubeFlicker 4s infinite;
+    pointer-events: none;
+  }
+  /* .term-style {
+   color: #9FD3FF;
+
+text-shadow:
+  0 0 2px rgba(191, 230, 255, 1),
+  0 0 6px rgba(159, 211, 255, 0.9),
+  0 0 14px rgba(95, 184, 255, 0.75),
+  0 0 28px rgba(30, 111, 184, 0.55);
+
+caret-color: #CFF0FF;
+  }
+} */
+
+.term-style-red {
+  --color: #EE352E;   /* change this per theme */
+  --g: 0.5;           /* 🔥 glow intensity (0 to 1) */
+
+  color: var(--color);
+
+  text-shadow:
+    0 0 calc(4px  * var(--g)) var(--color),
+    0 0 calc(12px * var(--g)) var(--color),
+    0 0 calc(24px * var(--g)) var(--color),
+    0 0 calc(48px * var(--g)) var(--color);
+
+  caret-color: var(--color);
+}
+
+.term-style-yellow {
+  --color:#FCCC0A ;   /* change this per theme */
+  --g: 0.5;           /* 🔥 glow intensity (0 to 1) */
+
+  color: var(--color);
+
+  text-shadow:
+    0 0 calc(4px  * var(--g)) var(--color),
+    0 0 calc(12px * var(--g)) var(--color),
+    0 0 calc(24px * var(--g)) var(--color),
+    0 0 calc(48px * var(--g)) var(--color);
+
+  caret-color: var(--color);
+}
+.term-style-orange{
+  --color: #FF6319;   /* change this per theme */
+  --g: 0.5;           /* 🔥 glow intensity (0 to 1) */
+
+  color: var(--color);
+
+  text-shadow:
+    0 0 calc(4px  * var(--g)) var(--color),
+    0 0 calc(12px * var(--g)) var(--color),
+    0 0 calc(24px * var(--g)) var(--color),
+    0 0 calc(48px * var(--g)) var(--color);
+
+  caret-color: var(--color);
+}
+
+.term-style-green{
+  --color: #00933C;   /* change this per theme */
+  --g: 0.5;           /* 🔥 glow intensity (0 to 1) */
+
+  color: var(--color);
+
+  text-shadow:
+    0 0 calc(4px  * var(--g)) var(--color),
+    0 0 calc(12px * var(--g)) var(--color),
+    0 0 calc(24px * var(--g)) var(--color),
+    0 0 calc(48px * var(--g)) var(--color);
+
+  caret-color: var(--color);
+}
+
+.term-style-blue{
+  --color: #9FD3FF;  
+  --g: 0.7;           
+  color: var(--color);
+
+  text-shadow:
+    0 0 calc(4px  * var(--g)) var(--color),
+    0 0 calc(12px * var(--g)) var(--color),
+    0 0 calc(24px * var(--g)) var(--color),
+    0 0 calc(48px * var(--g)) var(--color);
+
+  caret-color: var(--color);
+}
+@layer utilities {
+
+  .term-divider {
+    position: relative;
+    --color: #9FD3FF;
+    --g: 0.6;
+  }
+
+  .term-divider::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+  }
+
+  /* BOTTOM */
+  .term-divider-b::after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color),
+      transparent
+    );
+
+    box-shadow:
+      0 0 calc(4px * var(--g)) var(--color),
+      0 0 calc(12px * var(--g)) var(--color);
+  }
+
+  /* TOP */
+  .term-divider-t::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color),
+      transparent
+    );
+
+    box-shadow:
+      0 0 calc(4px * var(--g)) var(--color),
+      0 0 calc(12px * var(--g)) var(--color);
+  }
+
+  /* LEFT */
+  .term-divider-l::after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--color),
+      transparent
+    );
+
+    box-shadow:
+      0 0 calc(4px * var(--g)) var(--color),
+      0 0 calc(12px * var(--g)) var(--color);
+  }
+
+  /* RIGHT */
+  .term-divider-r::after {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--color),
+      transparent
+    );
+
+    box-shadow:
+      0 0 calc(4px * var(--g)) var(--color),
+      0 0 calc(12px * var(--g)) var(--color);
+  }
+
+
+
+ .vscode-logo b[style*="#0ECFFF"],
+.vscode-logo b[style*="#0ECBFE"],
+.vscode-logo b[style*="#0DC9FE"],
+.vscode-logo b[style*="#0BBEFE"],
+.vscode-logo b[style*="#0AB8FD"],
+.vscode-logo b[style*="#0E"],
+.vscode-logo b[style*="#0D"],
+.vscode-logo b[style*="#0C"],
+.vscode-logo b[style*="#0B"],
+.vscode-logo b[style*="#0A"] {
+  text-shadow:
+    0 0 2px #00d9ff,
+    0 0 6px #00d9ff,
+    0 0 14px #00d9ff,
+    0 0 30px rgba(0,217,255,0.9);
+}
+.vscode-logo b:not([style*="#000000"]) {
+  text-shadow:
+    0 0 2px currentColor,
+    0 0 6px currentColor,
+    0 0 14px currentColor,
+    0 0 30px currentColor;
+}
+
+
+
+.windsurf-logo b[style*="#FFFFFF"],
+.windsurf-logo b[style*="#FEFEFE"],
+.windsurf-logo b[style*="#FDFDFD"],
+.windsurf-logo b[style*="#FCFCFC"],
+.windsurf-logo b[style*="#FBFBFB"],
+.windsurf-logo b[style*="#F9F9F9"],
+.windsurf-logo b[style*="#F8F8F8"],
+.windsurf-logo b[style*="#F5F5F5"],
+.windsurf-logo b[style*="#EEEEEE"],
+.windsurf-logo b[style*="#EDEDED"],
+.windsurf-logo b[style*="#E8E8E8"],
+.windsurf-logo b[style*="#E5E5E5"],
+.windsurf-logo b[style*="#E4E4E4"],
+.windsurf-logo b[style*="#E2E2E2"],
+.windsurf-logo b[style*="#E0E0E0"],
+.windsurf-logo b[style*="#DEDEDE"] {
+  text-shadow:
+    0 0 2px #ffffff,
+    0 0 6px #ffffff,
+    0 0 14px #ffffff,
+    0 0 30px rgba(255,255,255,0.9);
+}
+
+.pycharm-logo b[style*="color:#"]:not([style*="color:#000000"]) {
+  text-shadow:
+    0 0 2px currentColor,
+    0 0 6px currentColor,
+    0 0 14px currentColor,
+    0 0 30px currentColor;
+}
+
+.cursor-logo b[style*="#FFFFFF"],
+.cursor-logo b[style*="#FEFEFE"],
+.cursor-logo b[style*="#FEFDFD"],
+.cursor-logo b[style*="#FBFAFA"],
+.cursor-logo b[style*="#F8F7F7"],
+.cursor-logo b[style*="#F7F6F6"],
+.cursor-logo b[style*="#F6F5F5"],
+.cursor-logo b[style*="#F5F4F4"],
+.cursor-logo b[style*="#F4F3F3"],
+.cursor-logo b[style*="#F3F2F2"],
+.cursor-logo b[style*="#F2F1F1"],
+.cursor-logo b[style*="#F1F0F0"],
+.cursor-logo b[style*="#F0EFEF"],
+.cursor-logo b[style*="#EFEEEE"],
+.cursor-logo b[style*="#EEEDED"],
+.cursor-logo b[style*="#EDECEC"],
+.cursor-logo b[style*="#ECEBEB"],
+.cursor-logo b[style*="#EBEAEA"],
+.cursor-logo b[style*="#EAE9E9"],
+.cursor-logo b[style*="#E9E8E8"],
+.cursor-logo b[style*="#E8E7E7"],
+.cursor-logo b[style*="#E7E6E6"] {
+  text-shadow:
+    0 0 2px #ffffff,
+    0 0 6px #ffffff,
+    0 0 14px #ffffff,
+    0 0 30px rgba(255,255,255,0.9);
+}
+
+.intellij-logo b:not([style*="#000000"]) {
+  text-shadow:
+    0 0 2px currentColor,
+    0 0 6px currentColor,
+    0 0 12px currentColor,
+    0 0 24px currentColor,
+    0 0 40px currentColor;
+}
+
+}
+}
+*{
+  
+    font-family: "Adwaita Mono", monospace;
+  
+}
+}
+
